@@ -1,0 +1,39 @@
+Select Distinct JobTitle from salaries; 
+
+Select JobTitle, Avg(TotalPay) 
+From salaries 
+Group by  JobTitle
+Order by AVG(TotalPay); 
+
+
+Select JobTitle, AVG(BasePay) 
+From Salaries
+ where  JobTitle like  '%Nurse%'
+Group by JobTitle 
+Order by AVG(BasePay); 
+
+
+Select *
+From salaries 
+where TotalPayBenefits =
+(Select Max(TotalPayBenefits) 
+ From salaries Group by Year); 
+
+Select Id,EmployeeName,JobTitle, 
+ OvertimePay, Year from salaries
+ Where = (Select Max(OvertimePay)
+ From salaries where Year = '2014'); 
+
+Select Sum(BasePay), Year 
+from Salaries Group by Year; 
+
+; 
+
+Select id, EmployeeName, JobTitle, 
+Max(TotalPay) 
+from Salaries 
+where year = '2013'
+Group by id
+Order by max(Totalpay) DESC
+Limit 3; 
+ 
